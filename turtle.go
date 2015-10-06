@@ -62,7 +62,7 @@ func widthHeight(l []line) (int, int) {
 type Turtle struct {
 	X float64
 	Y float64
-	// Angle in radiants.
+	// Angle in degrees.
 	A    float64
 	draw bool
 
@@ -186,14 +186,15 @@ func radToDeg(r float64) float64 {
 }
 
 func (t *Turtle) Rotate(angle float64) {
-	t.A += degToRad(angle)
+	t.A += angle
 }
 
 func (t *Turtle) Move(d float64) {
 	x := t.X
 	y := t.Y
-	t.X += math.Cos(t.A) * (-d)
-	t.Y += math.Sin(t.A) * (-d)
+	rad := t.A * math.Pi / 180.0
+	t.X += math.Cos(rad) * (-d)
+	t.Y += math.Sin(rad) * (-d)
 	if t.draw {
 		t.lines = append(t.lines, line{x, y, t.X, t.Y, t.width, t.color})
 	}
