@@ -1,7 +1,8 @@
 // This package was written by xojoc (http://xojoc.pw)
 // and is in the Public Domain do what you want with it.
 
-/*Package turtle implements basic primitives for turtle graphics.
+/*
+ Package turtle implements basic primitives for turtle graphics.
  */
 package turtle
 
